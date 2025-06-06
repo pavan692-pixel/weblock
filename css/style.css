@@ -1,3 +1,25 @@
+:root {
+  --neon: #00ffff;
+  --bg: #121212;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --blur: 10px;
+  --glow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ========= COMMON STYLES ========= */
 * {
   margin: 0;
@@ -18,13 +40,20 @@ body {
   margin: auto;
 }
 
-header {
-  background-color: #1a1a1a;
-  padding: 20px 0;
-  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
+header, footer {
+  backdrop-filter: blur(var(--blur));
+  background: var(--glass-bg);
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: var(--glow);
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  margin-top: 60px;
 }
 
 .logo {
@@ -58,14 +87,6 @@ nav {
   background-color: #333;
 }
 
-footer {
-  background-color: #1a1a1a;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 50px;
-  border-top: 1px solid #333;
-  font-size: 0.9rem;
-}
 
 /* ========= INDEX (Dashboard) ========= */
 .dashboard-section {
