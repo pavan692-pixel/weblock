@@ -1,40 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CryptoPlatform - Bridge</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <nav class="bg-indigo-600 p-4 text-white flex justify-between">
-    <div class="font-bold text-lg">BlockChainApp</div>
-    <div class="space-x-4">
-      <a href="index.html" class="hover:underline">Dashboard</a>
-      <a href="swap.html" class="hover:underline">Swap</a>
-      <a href="bridge.html" class="hover:underline">Bridge</a>
-      <a href="staking.html" class="hover:underline">Staking</a>
-      <a href="lending.html" class="hover:underline">Lending</a>
-      <a href="liquidity.html" class="hover:underline">Liquidity</a>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">CryptoPlatform</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="swap.html">Swap</a></li>
+          <li><a href="bridge.html" class="active">Bridge</a></li>
+          <li><a href="lendborrow.html">Lend & Borrow</a></li>
+          <li><a href="addliquidity.html">Add Liquidity</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
-  <main class="p-6">
+  </header>
 
-  <h2 class="text-2xl font-bold mb-4">Bridge Assets</h2>
-  <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
-    <label class="block mb-2">Asset</label>
-    <select class="w-full border p-2 rounded mb-4">
-      <option>ETH</option>
-      <option>USDC</option>
-      <option>BNB</option>
-    </select>
-    <label class="block mb-2">Destination Chain</label>
-    <input type="text" placeholder="Enter chain" class="w-full border p-2 rounded mb-4" />
-    <button class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
-      Bridge
-    </button>
-  </div>
+  <main class="container">
+    <section class="bridge-section">
+      <h2>Token Bridge</h2>
+      <form class="bridge-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="bridge-token">Token</label>
+          <select id="bridge-token" required>
+            <option value="eth">ETH</option>
+            <option value="usdt">USDT</option>
+            <option value="btc">BTC</option>
+          </select>
+        </div>
 
+        <div class="form-group">
+          <label for="bridge-amount">Amount</label>
+          <input type="number" id="bridge-amount" placeholder="Enter amount" min="0" required />
+        </div>
+
+        <div class="form-group">
+          <label for="from-chain">From Chain</label>
+          <select id="from-chain" required>
+            <option value="ethereum">Ethereum</option>
+            <option value="polygon">Polygon</option>
+            <option value="bsc">Binance Smart Chain</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="to-chain">To Chain</label>
+          <select id="to-chain" required>
+            <option value="polygon">Polygon</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="bsc">Binance Smart Chain</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary">Bridge Tokens</button>
+      </form>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CryptoPlatform. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
