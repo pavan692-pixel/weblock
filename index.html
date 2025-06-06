@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blockchain Platform - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <nav class="bg-indigo-600 p-4 text-white flex justify-between">
-    <div class="font-bold text-lg">BlockChainApp</div>
-    <div class="space-x-4">
-      <a href="index.html" class="hover:underline">Dashboard</a>
-      <a href="swap.html" class="hover:underline">Swap</a>
-      <a href="bridge.html" class="hover:underline">Bridge</a>
-      <a href="staking.html" class="hover:underline">Staking</a>
-      <a href="lending.html" class="hover:underline">Lending</a>
-      <a href="liquidity.html" class="hover:underline">Liquidity</a>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">CryptoPlatform</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Dashboard</a></li>
+          <li><a href="swap.html">Swap</a></li>
+          <li><a href="bridge.html">Bridge</a></li>
+          <li><a href="lendborrow.html">Lend & Borrow</a></li>
+          <li><a href="addliquidity.html">Add Liquidity</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
-  <main class="p-6">
+  </header>
 
-    <h1 class="text-3xl font-bold mb-4">Welcome to the Dashboard</h1>
-    <p class="mb-4">Explore blockchain features including swap, bridge, staking, lending and more.</p>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <a href="swap.html" class="bg-white p-4 rounded shadow hover:shadow-lg transform hover:scale-105 transition">Swap</a>
-      <a href="bridge.html" class="bg-white p-4 rounded shadow hover:shadow-lg transform hover:scale-105 transition">Bridge</a>
-      <a href="staking.html" class="bg-white p-4 rounded shadow hover:shadow-lg transform hover:scale-105 transition">Staking</a>
-      <a href="lending.html" class="bg-white p-4 rounded shadow hover:shadow-lg transform hover:scale-105 transition">Lending</a>
-      <a href="liquidity.html" class="bg-white p-4 rounded shadow hover:shadow-lg transform hover:scale-105 transition">Liquidity Pools</a>
-    </div>
+  <main class="container dashboard">
+    <section class="wallet-overview">
+      <h2>Wallet Balance</h2>
+      <div class="balance">$12,450.78</div>
+      <div class="tokens">
+        <div class="token">
+          <span>BTC</span>
+          <span>0.45</span>
+        </div>
+        <div class="token">
+          <span>ETH</span>
+          <span>3.21</span>
+        </div>
+        <div class="token">
+          <span>USDT</span>
+          <span>1500.00</span>
+        </div>
+      </div>
+    </section>
 
+    <section class="recent-activity">
+      <h2>Recent Activity</h2>
+      <ul>
+        <li>Swapped 0.5 BTC for ETH - <time datetime="2025-06-05">June 5, 2025</time></li>
+        <li>Added liquidity to ETH/USDT pool - <time datetime="2025-06-04">June 4, 2025</time></li>
+        <li>Staked 1000 USDT - <time datetime="2025-06-03">June 3, 2025</time></li>
+      </ul>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CryptoPlatform. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
-</html>
+  </html>
