@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CryptoPlatform - Lend & Borrow</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">CryptoPlatform</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="swap.html">Swap</a></li>
+          <li><a href="bridge.html">Bridge</a></li>
+          <li><a href="lend.html" class="active">Lend & Borrow</a></li>
+          <li><a href="addliquidity.html">Add Liquidity</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="lend-section">
+      <h2>Lend & Borrow</h2>
+      <div class="lend-borrow-boxes">
+        <div class="card lend-card">
+          <h3>Lend Tokens</h3>
+          <form onsubmit="return false;">
+            <select required>
+              <option value="">Select Token</option>
+              <option value="eth">ETH</option>
+              <option value="usdt">USDT</option>
+              <option value="btc">BTC</option>
+            </select>
+            <input type="number" placeholder="Amount to Lend" min="0" required />
+            <button class="btn-primary">Lend</button>
+          </form>
+        </div>
+
+        <div class="card borrow-card">
+          <h3>Borrow Tokens</h3>
+          <form onsubmit="return false;">
+            <select required>
+              <option value="">Select Token</option>
+              <option value="eth">ETH</option>
+              <option value="usdt">USDT</option>
+              <option value="btc">BTC</option>
+            </select>
+            <input type="number" placeholder="Amount to Borrow" min="0" required />
+            <button class="btn-primary">Borrow</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CryptoPlatform. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
