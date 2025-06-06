@@ -1,171 +1,419 @@
-/* Reset and basics */
+/* ========= COMMON STYLES ========= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
+  font-family: 'Segoe UI', sans-serif;
   background-color: #121212;
-  color: #eee;
+  color: #f0f0f0;
   line-height: 1.6;
 }
 
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* Header */
 header {
-  background: #1f1f1f;
-  padding: 15px 0;
-  border-bottom: 1px solid #333;
+  background-color: #1a1a1a;
+  padding: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .logo {
-  color: #0ff;
-  font-weight: 700;
   font-size: 1.8rem;
-  display: inline-block;
+  color: #0ff;
+  font-weight: bold;
 }
 
 nav {
-  display: inline-block;
-  float: right;
+  margin-top: 10px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.nav-links li a {
+.nav-links a {
   color: #ccc;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  padding: 6px 12px;
+  transition: 0.3s;
+  border-radius: 5px;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
+.nav-links a:hover,
+.nav-links a.active {
+  color: #0ff;
+  background-color: #333;
+}
+
+footer {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+  border-top: 1px solid #333;
+  font-size: 0.9rem;
+}
+
+/* ========= INDEX (Dashboard) ========= */
+.dashboard-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.dashboard-section h2 {
+  margin-bottom: 20px;
   color: #0ff;
 }
 
-/* Clearfix for header */
-header::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-/* Main Dashboard Sections */
-.dashboard {
-  margin-top: 40px;
+.dashboard-cards {
   display: flex;
-  gap: 40px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 20px;
+  justify-content: center;
 }
 
-/* Wallet Overview */
-.wallet-overview {
-  flex: 1 1 300px;
+.dashboard-cards .card {
   background: #1f1f1f;
   padding: 20px;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.dashboard-cards .card h3 {
+  color: #0ff;
+  margin-bottom: 10px;
+}
+
+/* ========= SWAP ========= */
+.swap-section {
+  margin: 40px auto;
+  max-width: 500px;
+  background: #1f1f1f;
+  padding: 30px;
   border-radius: 8px;
 }
 
-.wallet-overview h2 {
+.swap-section h2 {
+  text-align: center;
   color: #0ff;
-  margin-bottom: 15px;
-}
-
-.balance {
-  font-size: 2.8rem;
-  font-weight: 700;
   margin-bottom: 20px;
 }
 
-.tokens {
+.swap-form .form-group {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.token {
-  background: #333;
-  padding: 10px 15px;
-  border-radius: 6px;
-  flex: 1;
-  text-align: center;
+.swap-form label {
+  color: #ccc;
   font-weight: 600;
 }
 
-.token span:first-child {
-  display: block;
-  color: #0ff;
-  font-size: 1.1rem;
-  margin-bottom: 6px;
+.swap-form select,
+.swap-form input {
+  padding: 10px;
+  background: #333;
+  color: #eee;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-/* Recent Activity */
-.recent-activity {
-  flex: 2 1 500px;
+.swap-form select:hover,
+.swap-form input:hover,
+.swap-form select:focus,
+.swap-form input:focus {
+  background-color: #444;
+}
+
+.btn-primary {
+  padding: 12px 20px;
+  background-color: #0ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #00cccc;
+}
+
+/* ========= BRIDGE ========= */
+.bridge-section {
+  margin: 40px auto;
+  max-width: 500px;
   background: #1f1f1f;
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
 }
 
-.recent-activity h2 {
-  color: #0ff;
-  margin-bottom: 15px;
-}
-
-.recent-activity ul {
-  list-style: none;
-}
-
-.recent-activity li {
-  padding: 12px 0;
-  border-bottom: 1px solid #333;
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-.recent-activity li time {
-  color: #666;
-  font-size: 0.9rem;
-  margin-left: 6px;
-}
-
-/* Footer */
-footer {
-  margin-top: 60px;
-  padding: 15px 0;
-  background: #1f1f1f;
-  border-top: 1px solid #333;
+.bridge-section h2 {
   text-align: center;
-  color: #666;
-  font-size: 0.9rem;
+  color: #0ff;
+  margin-bottom: 20px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .dashboard {
-    flex-direction: column;
-  }
+.bridge-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
-  nav {
-    float: none;
-    margin-top: 10px;
-    text-align: center;
-  }
+.bridge-form label {
+  color: #ccc;
+  font-weight: 600;
+}
 
-  .nav-links {
-    justify-content: center;
-  }
-  }
+.bridge-form select,
+.bridge-form input {
+  padding: 10px;
+  background: #333;
+  color: #eee;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.bridge-form select:hover,
+.bridge-form input:hover,
+.bridge-form select:focus,
+.bridge-form input:focus {
+  background-color: #444;
+}
+
+/* ========= LEND & BORROW ========= */
+.lend-section {
+  margin: 40px auto;
+  max-width: 500px;
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.lend-section h2 {
+  text-align: center;
+  color: #0ff;
+  margin-bottom: 20px;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-buttons button {
+  flex: 1;
+  padding: 10px;
+  margin: 0 5px;
+  background-color: #222;
+  color: #eee;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tab-buttons .active {
+  background-color: #0ff;
+  color: #000;
+}
+
+.lend-form,
+.borrow-form {
+  display: none;
+}
+
+.lend-form.active,
+.borrow-form.active {
+  display: block;
+}
+
+.lend-form .form-group,
+.borrow-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.lend-form label,
+.borrow-form label {
+  color: #ccc;
+  font-weight: 600;
+}
+
+.lend-form input,
+.lend-form select,
+.borrow-form input,
+.borrow-form select {
+  padding: 10px;
+  background: #333;
+  color: #eee;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.lend-form input:hover,
+.borrow-form input:hover,
+.lend-form select:hover,
+.borrow-form select:hover {
+  background-color: #444;
+}
+
+/* ========= ADD LIQUIDITY ========= */
+.liquidity-section {
+  margin: 40px auto;
+  max-width: 500px;
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.liquidity-section h2 {
+  text-align: center;
+  color: #0ff;
+  margin-bottom: 20px;
+}
+
+.liquidity-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.liquidity-form label {
+  color: #ccc;
+  font-weight: 600;
+}
+
+.liquidity-form select,
+.liquidity-form input {
+  padding: 10px;
+  background: #333;
+  color: #eee;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.liquidity-form select:hover,
+.liquidity-form input:hover,
+.liquidity-form select:focus,
+.liquidity-form input:focus {
+  background-color: #444;
+}
+
+/* ========= STAKING ========= */
+.staking-section {
+  margin: 40px auto;
+  max-width: 500px;
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.staking-section h2 {
+  color: #0ff;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.staking-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.staking-form label {
+  color: #ccc;
+  font-weight: 600;
+}
+
+.staking-form select,
+.staking-form input {
+  padding: 10px;
+  background: #333;
+  color: #eee;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.staking-form select:hover,
+.staking-form input:hover,
+.staking-form select:focus,
+.staking-form input:focus {
+  background-color: #444;
+}
+
+/* ========= ABOUT ========= */
+.about-section {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 8px;
+  color: #eee;
+}
+
+.about-section h2 {
+  text-align: center;
+  color: #0ff;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.about-cards .card {
+  flex: 1 1 260px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.about-cards .card h3 {
+  margin-bottom: 10px;
+  color: #0ff;
+  font-size: 1.2rem;
+    }
