@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CryptoPlatform - Add Liquidity</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">CryptoPlatform</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="swap.html">Swap</a></li>
+          <li><a href="bridge.html">Bridge</a></li>
+          <li><a href="lendborrow.html">Lend & Borrow</a></li>
+          <li><a href="addliquidity.html" class="active">Add Liquidity</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="liquidity-section">
+      <h2>Add Liquidity</h2>
+      <form class="liquidity-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="token-a">Token A</label>
+          <select id="token-a" required>
+            <option value="eth">ETH</option>
+            <option value="usdt">USDT</option>
+            <option value="btc">BTC</option>
+          </select>
+          <input type="number" placeholder="Amount A" min="0" required />
+        </div>
+
+        <div class="form-group">
+          <label for="token-b">Token B</label>
+          <select id="token-b" required>
+            <option value="usdt">USDT</option>
+            <option value="eth">ETH</option>
+            <option value="btc">BTC</option>
+          </select>
+          <input type="number" placeholder="Amount B" min="0" required />
+        </div>
+
+        <button type="submit" class="btn-primary">Provide Liquidity</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CryptoPlatform. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
