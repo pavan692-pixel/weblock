@@ -1,40 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CryptoPlatform - Swap</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <nav class="bg-indigo-600 p-4 text-white flex justify-between">
-    <div class="font-bold text-lg">BlockChainApp</div>
-    <div class="space-x-4">
-      <a href="index.html" class="hover:underline">Dashboard</a>
-      <a href="swap.html" class="hover:underline">Swap</a>
-      <a href="bridge.html" class="hover:underline">Bridge</a>
-      <a href="staking.html" class="hover:underline">Staking</a>
-      <a href="lending.html" class="hover:underline">Lending</a>
-      <a href="liquidity.html" class="hover:underline">Liquidity</a>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">CryptoPlatform</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="swap.html" class="active">Swap</a></li>
+          <li><a href="bridge.html">Bridge</a></li>
+          <li><a href="lendborrow.html">Lend & Borrow</a></li>
+          <li><a href="addliquidity.html">Add Liquidity</a></li>
+          <li><a href="staking.html">Staking</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
-  <main class="p-6">
+  </header>
 
-  <h2 class="text-2xl font-bold mb-4">Swap Tokens</h2>
-  <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6 space-y-4">
-    <div class="flex items-center space-x-4">
-      <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=025" alt="ETH" class="w-10 h-10 rounded-full" />
-      <input type="text" placeholder="Amount ETH" class="border rounded px-3 py-2 flex-1" />
-    </div>
-    <div class="flex items-center space-x-4">
-      <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=025" alt="USDC" class="w-10 h-10 rounded-full" />
-      <input type="text" placeholder="Amount USDC" class="border rounded px-3 py-2 flex-1" />
-    </div>
-    <button class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition transform hover:scale-105 duration-300">
-      Swap
-    </button>
-  </div>
+  <main class="container">
+    <section class="swap-section">
+      <h2>Token Swap</h2>
+      <form class="swap-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="from-token">From</label>
+          <select id="from-token" name="from-token" required>
+            <option value="btc">BTC</option>
+            <option value="eth" selected>ETH</option>
+            <option value="usdt">USDT</option>
+          </select>
+          <input type="number" id="from-amount" name="from-amount" placeholder="Amount" min="0" step="any" required />
+        </div>
 
+        <div class="form-group">
+          <label for="to-token">To</label>
+          <select id="to-token" name="to-token" required>
+            <option value="btc">BTC</option>
+            <option value="eth">ETH</option>
+            <option value="usdt" selected>USDT</option>
+          </select>
+          <input type="number" id="to-amount" name="to-amount" placeholder="Amount" min="0" step="any" disabled />
+        </div>
+
+        <button type="submit" class="btn-primary">Swap Now</button>
+      </form>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CryptoPlatform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple token swap amount calculation mock
+    const rates = {
+      btc: { eth: 15, usdt: 27000 },
+      eth: { btc: 0.067, usdt: 1800 },
+      usdt: { btc: 0.000037, eth: 0.00056 }
+    };
+
+    const fromToken = document.getElementById('from-token');
+    const toToken = document.getElementById('to-token');
+    const fromAmount = document.getElementById('from-amount');
+    const toAmount = document.getElementById('to-amount');
+
+    function updateToAmount() {
+      const from = fromToken.value;
+      const to = toToken.value;
+      const amount = parseFloat(fromAmount.value);
+      if (!amount || amount <= 0 || from === to) {
+        toAmount.value = '';
+        return;
+      }
+      const rate = rates[from] ? rates[from][to] : null;
+      if (rate) {
+        toAmount.value = (amount * rate).toFixed(6);
+      } else {
+        toAmount.value = 'N/A';
+      }
+    }
+
+    fromToken.addEventListener('change', updateToAmount);
+    toToken.addEventListener('change', updateToAmount);
+    fromAmount.addEventListener('input', updateToAmount);
+  </script>
 </body>
 </html>
