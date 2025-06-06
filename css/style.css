@@ -1,0 +1,171 @@
+/* Reset and basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: #eee;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background: #1f1f1f;
+  padding: 15px 0;
+  border-bottom: 1px solid #333;
+}
+
+.logo {
+  color: #0ff;
+  font-weight: 700;
+  font-size: 1.8rem;
+  display: inline-block;
+}
+
+nav {
+  display: inline-block;
+  float: right;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #0ff;
+}
+
+/* Clearfix for header */
+header::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Main Dashboard Sections */
+.dashboard {
+  margin-top: 40px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Wallet Overview */
+.wallet-overview {
+  flex: 1 1 300px;
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.wallet-overview h2 {
+  color: #0ff;
+  margin-bottom: 15px;
+}
+
+.balance {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.tokens {
+  display: flex;
+  gap: 15px;
+}
+
+.token {
+  background: #333;
+  padding: 10px 15px;
+  border-radius: 6px;
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+}
+
+.token span:first-child {
+  display: block;
+  color: #0ff;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+/* Recent Activity */
+.recent-activity {
+  flex: 2 1 500px;
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.recent-activity h2 {
+  color: #0ff;
+  margin-bottom: 15px;
+}
+
+.recent-activity ul {
+  list-style: none;
+}
+
+.recent-activity li {
+  padding: 12px 0;
+  border-bottom: 1px solid #333;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.recent-activity li time {
+  color: #666;
+  font-size: 0.9rem;
+  margin-left: 6px;
+}
+
+/* Footer */
+footer {
+  margin-top: 60px;
+  padding: 15px 0;
+  background: #1f1f1f;
+  border-top: 1px solid #333;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  nav {
+    float: none;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+  }
