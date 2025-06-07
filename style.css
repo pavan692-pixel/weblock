@@ -1,0 +1,19 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #141e30, #243b55);
+  color: white;
+  animation: fadeIn 1.5s ease-in-out;
+}
+header, section {
+  text-align: center;
+  padding: 100px 20px;
+}
+.animated {
+  animation: floatUp 1.2s ease-in-out;
+}
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
